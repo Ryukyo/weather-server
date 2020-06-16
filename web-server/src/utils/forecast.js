@@ -7,7 +7,8 @@ const forecast = (latitude, longitude, callback) => {
     request({ url, json : true}, (error, {body}) => {
         if (error) callback('Unable to connect to weather service', undefined);
         else if (body.error) callback('Unable to connect to weather service', undefined);
-        else callback(undefined, `${body.current.weather_descriptions[0]} It is currently ${body.current.temperature} degrees. It feels like ${body.current.feelslike} degrees out.`);
+        else callback(undefined, `${body.current.weather_descriptions[0]} It is currently ${body.current.temperature} degrees and it feels like ${body.current.feelslike} degrees outside.
+         The humidity is ${body.current.humidity} %.`);
     });
 }
 
